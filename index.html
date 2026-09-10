@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hire a Wifey - Booking Page</title>
+
+    <style>
+        /* =========================================
+           GOOGLE FONT
+        ========================================= */
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+
+        /* =========================================
+           RESET
+        ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #fff8fb;
+            color: #17141b;
+            font-family: "DM Sans", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        button,
+        a {
+            font-family: inherit;
+        }
+
+
+        /* =========================================
+           MAIN PAGE
+        ========================================= */
+        .page {
+            width: 100%;
+            min-height: 100vh;
+            padding: 70px 24px 80px;
+        }
+
+        .page-container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+
+        /* =========================================
+           BACK LINK
+        ========================================= */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 40px;
+
+            color: #ba0752;
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: all 0.25s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-3px);
+            color: #97003f;
+        }
+
+        .back-arrow {
+            font-size: 22px;
+            line-height: 1;
+            font-weight: 400;
+        }
+
+
+        /* =========================================
+           MAIN BOOKING BOX
+        ========================================= */
+        .booking-box {
+            width: 100%;
+
+            background: #ffffff;
+
+            border: 1px solid #f3d8e4;
+            border-radius: 40px;
+
+            padding: 58px 50px 64px;
+
+            box-shadow:
+                0 25px 65px rgba(179, 18, 82, 0.055);
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+        .logo-area {
+            text-align: center;
+            margin-bottom: 43px;
+        }
+
+        .logo {
+            display: inline-block;
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: 700;
+
+            font-size: 25px;
+            line-height: 0.75;
+
+            color: #18151a;
+
+            position: relative;
+        }
+
+        .logo .pink {
+            color: #bd0754;
+            display: block;
+            margin-left: 13px;
+        }
+
+        .logo-tagline {
+            display: block;
+
+            margin-top: 6px;
+            margin-left: 13px;
+
+            color: #777078;
+
+            font-family: Arial, sans-serif;
+            font-size: 4px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+        }
+
+
+        /* =========================================
+           HEADING
+        ========================================= */
+        .eyebrow {
+            text-align: center;
+
+            color: #b4074d;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 22px;
+        }
+
+        .main-title {
+            text-align: center;
+
+            font-family: "Playfair Display", Georgia, serif;
+
+            font-size: clamp(42px, 5vw, 55px);
+            line-height: 1.05;
+
+            font-weight: 700;
+
+            color: #151219;
+
+            margin-bottom: 24px;
+        }
+
+        .main-title .italic {
+            color: #b80750;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .intro-text {
+            max-width: 720px;
+            margin: 0 auto;
+
+            text-align: center;
+
+            color: #625864;
+
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           SERVICE CARDS
+        ========================================= */
+        .service-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 16px;
+
+            margin-top: 44px;
+        }
+
+        .service-card {
+            position: relative;
+
+            min-height: 185px;
+
+            padding: 22px 21px 20px;
+
+            background: #ffffff;
+
+            border: 1px solid #f0d5e1;
+            border-radius: 17px;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+
+            border-color: #e9a9c4;
+
+            box-shadow:
+                0 15px 35px rgba(183, 8, 78, 0.09);
+        }
+
+        .service-icon {
+            width: 28px;
+            height: 28px;
+
+            margin-bottom: 18px;
+
+            color: #c20755;
+        }
+
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+
+            stroke: currentColor;
+            fill: none;
+
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .service-card h3 {
+            font-family: "Playfair Display", Georgia, serif;
+
+            color: #17141a;
+
+            font-size: 19px;
+            line-height: 1.2;
+
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: #665c65;
+
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           MOST POPULAR BADGE
+        ========================================= */
+        .popular-badge {
+            position: absolute;
+
+            top: -14px;
+            left: 18px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 27px;
+
+            padding: 0 16px;
+
+            background: #b90750;
+
+            color: #ffffff;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 1.4px;
+
+            white-space: nowrap;
+        }
+
+
+        /* =========================================
+           CTA / READY TO BOOK
+        ========================================= */
+        .ready-box {
+            margin-top: 43px;
+
+            width: 100%;
+
+            padding: 25px 30px 27px;
+
+            background: #fff4f8;
+
+            border-radius: 16px;
+
+            text-align: center;
+        }
+
+        .ready-title {
+            color: #b2074d;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 12px;
+        }
+
+        .ready-text {
+            color: #645962;
+
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           TRUST FEATURES
+        ========================================= */
+        .trust-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            gap: 35px;
+
+            margin-top: 34px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            color: #514852;
+
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .trust-icon {
+            width: 18px;
+            height: 18px;
+
+            color: #c20755;
+
+            flex-shrink: 0;
+        }
+
+        .trust-icon svg {
+            width: 100%;
+            height: 100%;
+
+            stroke: currentColor;
+            fill: none;
+
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+
+        /* =========================================
+           PHONE
+        ========================================= */
+        .phone-text {
+            margin-top: 35px;
+
+            text-align: center;
+
+            color: #71666f;
+
+            font-size: 15px;
+        }
+
+        .phone-number {
+            color: #b90750;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+        .phone-number:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+        @media (max-width: 800px) {
+
+            .page {
+                padding: 45px 20px 60px;
+            }
+
+            .booking-box {
+                padding: 50px 35px 55px;
+                border-radius: 32px;
+            }
+
+            .service-grid {
+                gap: 12px;
+            }
+
+            .service-card {
+                padding: 20px 17px;
+            }
+
+            .intro-text {
+                font-size: 16px;
+            }
+
+            .trust-row {
+                gap: 22px;
+            }
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+        @media (max-width: 650px) {
+
+            .page {
+                padding: 28px 14px 40px;
+            }
+
+            .page-container {
+                max-width: 100%;
+            }
+
+            .back-link {
+                margin-left: 5px;
+                margin-bottom: 28px;
+
+                font-size: 13px;
+            }
+
+            .booking-box {
+                padding: 38px 18px 42px;
+
+                border-radius: 25px;
+            }
+
+            .logo-area {
+                margin-bottom: 35px;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .eyebrow {
+                font-size: 12px;
+                letter-spacing: 3.5px;
+
+                margin-bottom: 17px;
+            }
+
+            .main-title {
+                font-size: 39px;
+
+                line-height: 1.1;
+
+                margin-bottom: 20px;
+            }
+
+            .intro-text {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+
+                gap: 13px;
+
+                margin-top: 35px;
+            }
+
+            .service-card {
+                min-height: auto;
+
+                padding: 22px 20px;
+
+                border-radius: 15px;
+            }
+
+            .service-card h3 {
+                font-size: 20px;
+            }
+
+            .service-card p {
+                font-size: 14px;
+            }
+
+            .popular-badge {
+                top: -12px;
+                left: 17px;
+
+                font-size: 9px;
+
+                min-height: 25px;
+
+                padding: 0 13px;
+            }
+
+            .ready-box {
+                margin-top: 30px;
+
+                padding: 23px 18px;
+            }
+
+            .ready-title {
+                font-size: 11px;
+                letter-spacing: 2.5px;
+            }
+
+            .ready-text {
+                font-size: 13px;
+                line-height: 1.65;
+            }
+
+            .trust-row {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 15px;
+
+                width: max-content;
+
+                max-width: 100%;
+
+                margin: 29px auto 0;
+            }
+
+            .trust-item {
+                font-size: 13px;
+            }
+
+            .phone-text {
+                margin-top: 30px;
+
+                font-size: 13px;
+            }
+        }
+
+
+        /* =========================================
+           SMALL MOBILE
+        ========================================= */
+        @media (max-width: 380px) {
+
+            .booking-box {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .main-title {
+                font-size: 34px;
+            }
+
+            .intro-text {
+                font-size: 13px;
+            }
+
+            .service-card {
+                padding: 20px 17px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <main class="page">
+
+        <div class="page-container">
+
+            <!-- BACK LINK -->
+            <a href="#" class="back-link">
+                <span class="back-arrow">←</span>
+                <span></span><a href="index.html">Back to Hire a Wifey</a>
+            </a>
+
+
+            <!-- MAIN BOOKING CONTAINER -->
+            <section class="booking-box">
+
+
+                <!-- LOGO -->
+                <div class="logo-area">
+
+                    <div class="logo">
+                        hire a
+                        <span class="pink">wifey</span>
+
+                        <span class="logo-tagline">
+                            WE TAKE CARE OF HOME
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <!-- HEADER -->
+                <div class="eyebrow">
+                    BOOKING PAGE
+                </div>
+
+
+                <h1 class="main-title">
+                    Book your <span class="italic">Wifey</span>
+                </h1>
+
+
+                <p class="intro-text">
+                    This is the dedicated Booking Page destination that every booking
+                    button on the homepage leads to. In the full build this page hosts
+                    the step-by-step booking flow — choose your service, set your
+                    priorities, pick your day and time.
+                </p>
+
+
+                <!-- SERVICE CARDS -->
+                <div class="service-grid">
+
+
+                    <!-- WEEKLY -->
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <line x1="12" y1="2" x2="12" y2="5"></line>
+                                <line x1="12" y1="19" x2="12" y2="22"></line>
+                                <line x1="2" y1="12" x2="5" y2="12"></line>
+                                <line x1="19" y1="12" x2="22" y2="12"></line>
+                                <line x1="4.9" y1="4.9" x2="7" y2="7"></line>
+                                <line x1="17" y1="17" x2="19.1" y2="19.1"></line>
+                                <line x1="17" y1="7" x2="19.1" y2="4.9"></line>
+                                <line x1="4.9" y1="19.1" x2="7" y2="17"></line>
+                            </svg>
+                        </div>
+
+                        <h3>
+                            Weekly Wifey
+                        </h3>
+
+                        <p>
+                            Consistent weekly help keeping everything under control.
+                        </p>
+
+                    </article>
+
+
+                    <!-- FORTNIGHTLY -->
+                    <article class="service-card">
+
+                        <div class="popular-badge">
+                            MOST POPULAR
+                        </div>
+
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="4" width="18" height="17" rx="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+
+                                <path d="M12 17.5
+                                         C10.2 15.9 7.5 14.2 7.5 12.2
+                                         C7.5 10.7 9.3 10.1 10.3 11
+                                         L12 12.6
+                                         L13.7 11
+                                         C14.7 10.1 16.5 10.7 16.5 12.2
+                                         C16.5 14.2 13.8 15.9 12 17.5Z">
+                                </path>
+                            </svg>
+                        </div>
+
+                        <h3>
+                            Fortnightly Wifey
+                        </h3>
+
+                        <p>
+                            Regular help without the weekly commitment.
+                        </p>
+
+                    </article>
+
+
+                    <!-- ONE-OFF -->
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 20l5.5-5.5"></path>
+                                <path d="M9.5 14.5l-3-3 2-2 3 3"></path>
+                                <path d="M13 4l1.2 2.8L17 8l-2.8 1.2L13 12l-1.2-2.8L9 8l2.8-1.2L13 4Z"></path>
+                                <path d="M18.5 13l.6 1.4L20.5 15l-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6.6-1.4Z"></path>
+                            </svg>
+                        </div>
+
+                        <h3>
+                            One-Off Wifey
+                        </h3>
+
+                        <p>
+                            A reset, visitors, moving — or trying us out.
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <!-- READY TO BOOK -->
+                <div class="ready-box">
+
+                    <div class="ready-title">
+                        READY TO BOOK?
+                    </div>
+
+                    <p class="ready-text">
+                        In the WordPress build, the live booking form sits here —
+                        mobile-first, three steps, under a minute to complete.
+                    </p>
+
+                </div>
+
+
+                <!-- TRUST FEATURES -->
+                <div class="trust-row">
+
+
+                    <div class="trust-item">
+
+                        <span class="trust-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 3l7 3v5c0 4.5-3 8-7 10
+                                         -4-2-7-5.5-7-10V6l7-3Z">
+                                </path>
+
+                                <path d="M9 12l2 2 4-4"></path>
+                            </svg>
+                        </span>
+
+                        <span>
+                            Fully Insured
+                        </span>
+
+                    </div>
+
+
+                    <div class="trust-item">
+
+                        <span class="trust-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M8 12l2.5 2.5L16 9"></path>
+                            </svg>
+                        </span>
+
+                        <span>
+                            Police Checked Wifeys
+                        </span>
+
+                    </div>
+
+
+                    <div class="trust-item">
+
+                        <span class="trust-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                                <line x1="16" y1="3" x2="16" y2="7"></line>
+                                <line x1="8" y1="3" x2="8" y2="7"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </span>
+
+                        <span>
+                            One-off, weekly &amp; fortnightly
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHONE -->
+                <div class="phone-text">
+
+                    Prefer to talk it through?
+
+                    <a href="tel:0448168480" class="phone-number">
+                        0448 168 480
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
